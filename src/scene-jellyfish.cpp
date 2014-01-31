@@ -1,5 +1,5 @@
 //
-// Copyright © 2012 Linaro Limited
+// Copyright Â© 2012 Linaro Limited
 //
 // This file is part of the glmark2 OpenGL (ES) 2.0 benchmark.
 //
@@ -27,6 +27,7 @@
 #include "scene.h"
 #include "scene-jellyfish.h"
 #include "log.h"
+#include "options.h"
 #include "util.h"
 #include "texture.h"
 #include "shader-source.h"
@@ -115,8 +116,8 @@ bool
 GradientRenderer::init()
 {
     // Program set up
-    static const string vtx_shader_filename(GLMARK_DATA_PATH"/shaders/gradient.vert");
-    static const string frg_shader_filename(GLMARK_DATA_PATH"/shaders/gradient.frag");
+    static const string vtx_shader_filename(Options::data_path + "/shaders/gradient.vert");
+    static const string frg_shader_filename(Options::data_path + "/shaders/gradient.frag");
     ShaderSource vtx_source(vtx_shader_filename);
     ShaderSource frg_source(frg_shader_filename);
     if (!Scene::load_shaders_from_strings(program_, vtx_source.str(),
@@ -375,7 +376,7 @@ JellyfishPrivate::~JellyfishPrivate()
 bool
 JellyfishPrivate::initialize()
 {
-    static const string modelFilename(GLMARK_DATA_PATH"/models/jellyfish.jobj");
+    static const string modelFilename(Options::data_path + "/models/jellyfish.jobj");
     if (!load_obj(modelFilename))
     {
         return false;
@@ -410,8 +411,8 @@ JellyfishPrivate::initialize()
     // Set up program first so we can store attribute and uniform locations
     // away for the 
     using std::string;
-    static const string vtx_shader_filename(GLMARK_DATA_PATH"/shaders/jellyfish.vert");
-    static const string frg_shader_filename(GLMARK_DATA_PATH"/shaders/jellyfish.frag");
+    static const string vtx_shader_filename(Options::data_path + "/shaders/jellyfish.vert");
+    static const string frg_shader_filename(Options::data_path + "/shaders/jellyfish.frag");
 
     ShaderSource vtx_source(vtx_shader_filename);
     ShaderSource frg_source(frg_shader_filename);
