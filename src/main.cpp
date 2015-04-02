@@ -42,12 +42,16 @@
 #include "native-state-mir.h"
 #elif GLMARK2_USE_WAYLAND
 #include "native-state-wayland.h"
+#elif GLMARK2_USE_WAFFLE
+#include "native-state-waffle.h"
 #endif
 
 #if GLMARK2_USE_EGL
 #include "gl-state-egl.h"
 #elif GLMARK2_USE_GLX
 #include "gl-state-glx.h"
+#elif GLMARK2_USE_WAFFLE
+#include "gl-state-waffle.h"
 #endif
 
 using std::vector;
@@ -168,12 +172,16 @@ main(int argc, char *argv[])
     NativeStateMir native_state;
 #elif GLMARK2_USE_WAYLAND
     NativeStateWayland native_state;
+#elif GLMARK2_USE_WAFFLE
+    NativeStateWaffle native_state;
 #endif
 
 #if GLMARK2_USE_EGL
     GLStateEGL gl_state;
 #elif GLMARK2_USE_GLX
     GLStateGLX gl_state;
+#elif GLMARK2_USE_WAFFLE
+    GLStateWaffle gl_state;
 #endif
 
     CanvasGeneric canvas(native_state, gl_state, Options::size.first, Options::size.second);

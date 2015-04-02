@@ -18,6 +18,7 @@ FLAVORS = {
     'drm-glesv2' : 'glmark2-es2-drm',
     'mir-gl' : 'glmark2-mir',
     'mir-glesv2' : 'glmark2-es2-mir',
+    'waffle' : 'glmark2-waffle',
     'wayland-gl' : 'glmark2-wayland',
     'wayland-glesv2' : 'glmark2-es2-wayland'
 }
@@ -117,6 +118,7 @@ def configure(ctx):
                 ('libdrm','drm', None, list_contains(Options.options.flavors, 'drm')),
                 ('gbm','gbm', None, list_contains(Options.options.flavors, 'drm')),
                 ('mirclient','mirclient', '0.13', list_contains(Options.options.flavors, 'mir')),
+                ('waffle-1', 'waffle-1', None, list_contains(Options.options.flavors, 'waffle')),
                 ('wayland-client','wayland-client', None, list_contains(Options.options.flavors, 'wayland')),
                 ('wayland-egl','wayland-egl', None, list_contains(Options.options.flavors, 'wayland'))]
     for (pkg, uselib, atleast, mandatory) in opt_pkgs:

@@ -31,7 +31,11 @@
 #define GL_RGB565 0x8D62
 #endif
 #elif GLMARK2_USE_GLESv2
+#ifdef GLMARK2_USE_WAFFLE
+#include <gl-headers-waffle.h>
+#else
 #include <GLES2/gl2.h>
+#endif
 #include <GLES2/gl2ext.h>
 #ifndef GL_WRITE_ONLY
 #define GL_WRITE_ONLY GL_WRITE_ONLY_OES
