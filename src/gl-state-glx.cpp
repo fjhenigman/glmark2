@@ -123,7 +123,7 @@ GLStateGLX::swap()
 }
 
 bool
-GLStateGLX::gotNativeConfig(int& vid)
+GLStateGLX::gotNativeConfig(intptr_t& vid)
 {
     if (!ensure_glx_fbconfig())
         return false;

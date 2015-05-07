@@ -46,7 +46,7 @@ public:
     void init_gl_extensions();
     bool reset();
     void swap();
-    bool gotNativeConfig(int& vid);
+    bool gotNativeConfig(intptr_t& vid);
     void getVisualConfig(GLVisualConfig& vc);
 
 private:
